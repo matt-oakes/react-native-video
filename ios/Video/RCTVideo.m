@@ -360,6 +360,12 @@ static int const RCTVideoUnset = -1;
   [self removePlayerLayer];
   [self removePlayerTimeObserver];
   [self removePlayerItemObservers];
+
+  NSString *checkUri = [source objectForKey:@"uri"];
+  if (!checkUri || checkUri.length == 0) {
+  	return;
+  }
+
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t) 0), dispatch_get_main_queue(), ^{
     
     // perform on next run loop, otherwise other passed react-props may not be set

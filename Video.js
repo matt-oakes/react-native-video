@@ -67,6 +67,10 @@ export default class Video extends Component {
     }
   };
 
+  reload = (uri)=>{
+    this.setNativeProps({ src: {uri:uri} });
+  }
+
   presentFullscreenPlayer = () => {
     this.setNativeProps({ fullscreen: true });
   };
